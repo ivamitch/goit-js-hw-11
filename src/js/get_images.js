@@ -2,7 +2,6 @@ import refs from './refs';
 import { createMarkup } from './markup';
 import Notiflix from 'notiflix';
 
-// Налаштування Notiflix
 Notiflix.Notify.init({
   width: '280px',
   position: 'center-top',
@@ -11,7 +10,6 @@ Notiflix.Notify.init({
   distance: '40px',
 });
 
-// Ініціалізація axios
 const axios = require('axios').default;
 
 const BASE_URL = 'https://pixabay.com/api/';
@@ -31,16 +29,13 @@ export async function getImages(name, page = 1) {
   const datas = response.data;
   refs.loadmore.hidden = false;
 
-  // повідомлення про кількість знайдених зображень
   if (page === 1 && datas.totalHits !== 0) {
     Notiflix.Notify.info(`Hooray! We found ${datas.totalHits} images.`);
     refs.header.classList.add('opac');
   }
 
-  // додавання карток на екран
   refs.card.insertAdjacentHTML('beforeend', createMarkup(datas.hits));
 
-  // прибирання кнопки "Load more" по закінченю карток на сервері
   if (
     refs.card.childNodes.length + 1 > datas.totalHits &&
     datas.totalHits !== 0
@@ -52,7 +47,6 @@ export async function getImages(name, page = 1) {
     );
   }
 
-  // перевірка за пошуком, який відсутній на сервері
   if (!datas.hits.length) {
     refs.loadmore.hidden = true;
     refs.header.classList.remove('opac');

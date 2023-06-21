@@ -13,11 +13,7 @@ body {
 }
 
 header {
-    backdrop-filter: blur(0.8px);
-    background: linear-gradient(180deg,
-            #000000 10%,
-            rgba(0, 0, 0, 0.747) 70.3%,
-            rgba(0, 0, 0, 0) 100%);
+    background-color: #1cb6b1;
     position: fixed;
     display: flex;
     top: 0;
@@ -28,14 +24,14 @@ header {
 }
 
 .opac {
-    opacity: 0.5;
-    background-color: #fff;
+    /* opacity: 0.5; */
+    /* background-color: #fff; */
 }
 
 .search-form {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .photo-card {
@@ -79,8 +75,11 @@ a {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    width: 100%;
     /* margin-right: auto; */
     /* margin-left: auto; */
+    /* padding-left: auto;
+    padding-right: auto; */
 }
 
 button {
