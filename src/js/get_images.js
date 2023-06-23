@@ -36,23 +36,23 @@ export async function getImages(name, page = 1) {
 
   refs.card.insertAdjacentHTML('beforeend', createMarkup(datas.hits));
 
-  if (
-    refs.card.childNodes.length + 1 > datas.totalHits &&
-    datas.totalHits !== 0
-  ) {
-    refs.loadmore.hidden = true;
-    refs.header.classList.remove('opac');
-    Notiflix.Notify.warning(
-      "We're sorry, but you've reached the end of search results."
-    );
-  }
+  // if (
+  //   refs.card.childNodes.length + 1 > datas.totalHits &&
+  //   datas.totalHits !== 0
+  // ) {
+  //   refs.loadmore.hidden = true;
+  //   refs.header.classList.remove('opac');
+  //   Notiflix.Notify.warning(
+  //     "We're sorry, but you've reached the end of search results."
+  //   );
+  // }
 
-  if (!datas.hits.length) {
-    refs.loadmore.hidden = true;
-    refs.header.classList.remove('opac');
-    Notiflix.Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
-    return;
-  }
+  // if (!datas.hits.length) {
+  //   refs.loadmore.hidden = true;
+  //   refs.header.classList.remove('opac');
+  //   Notiflix.Notify.failure(
+  //     'Sorry, there are no images matching your search query. Please try again.'
+  //   );
+  //   return;
+  // }
 }
