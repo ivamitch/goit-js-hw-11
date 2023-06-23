@@ -15,15 +15,23 @@ refs.search.addEventListener('submit', onSearch);
 refs.loadmore.addEventListener('click', onLoad);
 
 async function onSearch(event) {
-  event.preventDefault();
+  // event.preventDefault();
+  // refs.card.innerHTML = '';
+  // refs.loadmore.hidden = true;
+  // const value = refs.search.elements.searchQuery.value;
+  // if (!value.trim()) {
+  //   return;
+  // }
+  // refs.search.elements[1].disabled = true; 
+  try {
+    event.preventDefault();
   refs.card.innerHTML = '';
   refs.loadmore.hidden = true;
   const value = refs.search.elements.searchQuery.value;
   if (!value.trim()) {
     return;
   }
-  refs.search.elements[1].disabled = true; 
-  try {
+  refs.search.elements[1].disabled = true;
     const cardImage = await getImages(value.trim());
     refs.search.elements[1].disabled = false; 
     gallery.refresh(); 
